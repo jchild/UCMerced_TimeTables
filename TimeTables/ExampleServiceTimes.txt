@@ -1,0 +1,37 @@
+UC Merced Bookstore id 1
+M-TH: 830am-6:00pm
+F:	9:00a-4pm
+SUN: CLOSED
+-------------------------------------------
+Career Services: id 2
+M-F: 8:00am-5:00pm
+Sat-Sun: CLOSED
+--------------------------------------------------
+UCM Taps: id 3
+M-F: 830am-430pm
+Closed: 1200pm-100pm for lunch
+-----------------------------------------------
+Dining Commons: id 4
+
+M-F:  Breakfast: 700am-1000am
+
+	  Lunch: 1100am-200pm
+	
+	  Dinner: 400pm-900pm
+	  
+Sat-Sun: Brunch: 1000am-200pm
+		 Dinner: 500pm-900pm
+		 
+-----------------------------------------------------------		 
+Lantern: id 5
+
+M-F:10am-11Pm
+
+Sat-Sun: 900am-500pm
+--------------------------------------------------------
+GYM: id 6
+
+M-TH: 600am-1am
+F:    6am-10pm
+Sat:  10am-10pm
+Sun:  Noon-1am
