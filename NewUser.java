@@ -48,7 +48,7 @@ public class NewUser extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
+        text_username = new javax.swing.JTextField();
         userpass = new javax.swing.JPasswordField();
         retypeuserpass = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
@@ -64,10 +64,10 @@ public class NewUser extends javax.swing.JFrame {
 
         jLabel4.setText("password");
 
-        username.setText("username");
-        username.addActionListener(new java.awt.event.ActionListener() {
+        text_username.setText("username");
+        text_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
+                text_usernameActionPerformed(evt);
             }
         });
 
@@ -116,7 +116,7 @@ public class NewUser extends javax.swing.JFrame {
                                 .addComponent(jLabel5))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(username)
+                                .addComponent(text_username)
                                 .addComponent(userpass, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                                 .addComponent(retypeuserpass)))))
                 .addContainerGap(150, Short.MAX_VALUE))
@@ -131,7 +131,7 @@ public class NewUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -175,20 +175,20 @@ public class NewUser extends javax.swing.JFrame {
         String sql = "INSERT into users values (?,?,?)";
         try {
             ps = conn.prepareStatement(sql);
-            String userid = = Integer.toString(userid);
-            ps.setString(1, userid);
-            String username = username.getText();
+            String uid = Integer.toString(userid);
+            ps.setString(1, uid);
+            String username = text_username.getText();
             ps.setString(2, username);
             String password = userpass.getText();
-            ps.setString(3, username);
+            ps.setString(3, password);
         }
         catch(Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+    private void text_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernameActionPerformed
+    }//GEN-LAST:event_text_usernameActionPerformed
 
     private void userpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userpassActionPerformed
         // TODO add your handling code here:
@@ -204,13 +204,16 @@ public class NewUser extends javax.swing.JFrame {
         
         if(pass.equals(conf_pass)) {
             try{
-                ps = conn.prepareStatement(sql);
-                rs = ps.executeQuery();
+                //ps = conn.prepareStatement(sql);
+                //rs = ps.executeQuery();
+                users();
                 JOptionPane.showMessageDialog(null, "User created");
                 rs.close();
                 ps.close();
-                Home x = new Home();
+                Home x = new Home(userid);
                 x.setVisible(true);
+                this.dispose();  
+            
             }
             
             catch(Exception e)
@@ -231,7 +234,7 @@ public class NewUser extends javax.swing.JFrame {
             else{
             JOptionPane.showMessageDialog(null, "The passwords don't match!!!!");
         }
-        }
+     
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -279,7 +282,9 @@ public class NewUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField retypeuserpass;
-    private javax.swing.JTextField username;
+    private javax.swing.JTextField text_username;
     private javax.swing.JPasswordField userpass;
     // End of variables declaration//GEN-END:variables
+
+
 }
