@@ -15,7 +15,7 @@ public class connect {
     public static Connection connect(){
       try{
           Class.forName("org.sqlite.JDBC");
-         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Jonathan\\Documents\\NetBeansProjects\\UCMerced_TimeTables\\TimeTables");
+         Connection conn = DriverManager.getConnection("jdbc:sqlite:TimeTables");
           
           return conn;
       }
